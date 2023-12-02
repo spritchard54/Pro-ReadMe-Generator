@@ -34,7 +34,7 @@ inquirer
     {
         type: 'input',
         name: 'usage',
-        message: 'Usage: provide some examples of how to use your application and include screen show if available.',
+        message: 'Usage: provide some examples of how to use your application and include screen shots if available.',
     },
     {
         type: 'input',
@@ -45,22 +45,37 @@ inquirer
         type: 'input',
         name: 'tests',
         message: 'Include any tests that your an on your application, and explanations of how to run them.',
+    },
+    {
+        type: 'input',
+        name: 'username',
+        message: 'What is your GitHub Username?',
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?',
     }
 ])
 .then((answers) => {
-    const markDownContent = generateMarkdown(responses);
-    fs.appendFile('README.md', markDownContent, (err) =>
+    const markDownContent = generateMarkdown(answers);
+    fs.writeFile('README.md', markDownContent, (err) =>
     err ? console.log(err) : console.log('The README.md file has been updated.')
-    )
+    );
 });
 
 
-// // TODO: Create a function to write README file
+// TODO: Create a function to write README file
+//more of your code below, delete it not needed
 // function writeToFile(README, data) {
+//     fs.writeFile('README.md', markDownContent, (err) =>
+//     err ? console.log(err) : console.log('The README.md file has been updated.')
+// )}
 
-// }
+// return writeToFile //this was your code, likely need to delete it
 
-// // TODO: Create a function to initialize app
+// TODO: Create a function to initialize app
+
 // function init() {
 //     // Ask the questions here
 //     let responses = {
