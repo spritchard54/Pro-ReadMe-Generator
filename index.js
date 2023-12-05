@@ -1,25 +1,18 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { error } = require('console');
+const { error, clear } = require('console');
 const generateMarkdown = require('./utils/generateMarkdown');
-
-
-
-// fs.readFile('README.md', 'utf8', (error, data) => {
-//     error ? console.error(error) : console.log(data)
-// });
-
-
-
-// TODO: Create an array of questions for user input 
-//removed from line 18 "const questions =""
-inquirer
-.prompt([
+const questions = [
     {
         type: 'input',
         name: 'title',
         message: 'What is the title of your README.md file',
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Choose a license from the options below.',
+        choices: ['MIT', 'License Option 2', 'License option 3']
     },
     {
         type: 'input',
@@ -56,42 +49,21 @@ inquirer
         name: 'email',
         message: 'What is your email address?',
     }
-])
-.then((answers) => {
-    const markDownContent = generateMarkdown(answers);
-    fs.writeFile('README.md', markDownContent, (err) =>
-    err ? console.log(err) : console.log('The README.md file has been updated.')
-    );
-});
-
-
-// TODO: Create a function to write README file
-//more of your code below, delete it not needed
-// function writeToFile(README, data) {
-//     fs.writeFile('README.md', markDownContent, (err) =>
-//     err ? console.log(err) : console.log('The README.md file has been updated.')
-// )}
-
-// return writeToFile //this was your code, likely need to delete it
+]
 
 // TODO: Create a function to initialize app
 
-// function init() {
-//     // Ask the questions here
-//     let responses = {
-//         title: '',
-//         description: '',
-//         installation: '',
-//         usage: '', 
-//         contributing: '', 
-//         tests: ''
-//     }
+function init() {
+    inquirer
+        .prompt(questions)
+        .then((answers) => {
+            const markDownContent = generateMarkdown(answers);
+            fs.writeFile('README.md', markDownContent, (err) =>
+                err ? console.log(err) : console.log('The README.md file has been updated.')
+            )
+        });
+}
 
-//     console.log(generateMarkdown(responses));
+// Function call to initialize app
 
-//     generateMarkdown(responses);
-
-
-
-// // Function call to initialize app
-// init();
+init();
