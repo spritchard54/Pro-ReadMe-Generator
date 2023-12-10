@@ -12,7 +12,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Choose a license from the options below.',
-        choices: ['MIT', 'License Option 2', 'License option 3']
+        choices: ['MIT', 'License Option 2', 'License option 3', 'None']
     },
     {
         type: 'input',
