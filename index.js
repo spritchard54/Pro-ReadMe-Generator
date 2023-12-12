@@ -12,7 +12,12 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Choose a license from the options below.',
-        choices: ['MIT', 'License Option 2', 'License option 3', 'None']
+        choices: ['MIT', 'APACHE_2.0', 'GPL_3.0', 'BSD_3', 'None']
+    },
+    {
+        type: 'input',
+        name: 'ssFileName',
+        message: 'Enter the file name of your screenshot including the file extension',
     },
     {
         type: 'input',
@@ -67,3 +72,4 @@ function init() {
 // Function call to initialize app
 
 init();
+
