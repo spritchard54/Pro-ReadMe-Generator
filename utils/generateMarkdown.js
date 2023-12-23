@@ -47,12 +47,14 @@ function generateMarkdown(data) {
 ![Readme.md Screenshot](./assets/images/${data.ssFileName})
 
 ## Table of Contents
-[Installation](##Installation)<br>
-[Option](##Option)<br>
-[Contributing](##Contributing)<br>
-[Tests](##Tests)<br>
-[License Link](##license-link)<br>
-[License Description](##license-description)<br>
+[Description](#description)<br>
+[Installation](#installation)<br>
+[Usage](#usage)<br>
+[Contributing](#contributing)<br>
+[Tests](#tests)<br>
+[License Link](#license-link)<br>
+[License Description](#license-description)<br>
+[Questions](#questions)
 
 ## Description
 ${data.description}
